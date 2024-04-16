@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#newBookForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#newBookModal {
+    background-color: rgba(0,0,0,0.15);
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 75px;
+}
+

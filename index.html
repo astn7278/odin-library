@@ -6,7 +6,29 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        
+        <button id="openModalBtn">New Book</button>
+        <div id="newBookModal">
+            <div class="bookModalContent">
+                <form id="newBookForm">
+                    <label for="authorName"></label>
+                    <input type="text" id="authorName" name="authorName" placeholder="Author Name">
+
+                    <label for="bookTitle"></label>
+                    <input type="text" id="bookTitle" name="bookTitle" placeholder="Book Title">
+
+                    <label for="pageCount"></label>
+                    <input type="text" id="pageCount" name="pageCount" placeholder="Number of Pages">
+                    
+                    <div id= readBtn>
+                        <input type="checkbox" id="readStatus" name="readStatus">
+                        <label for="readStatus">Book Read?</label>
+                    </div>
+                
+                    <input type="submit" value="Add">
+                    <input type="submit" value="Cancel"
+                </form>
+            </div>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>
