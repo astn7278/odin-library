@@ -13,11 +13,20 @@
 
 #newBookModal {
     background-color: rgba(0,0,0,0.15);
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 75px;
+    border-radius: 5px;
 }
 
+.bookModalContent {
+    width: 75%
+}
+
+.formButtons input{
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+}
