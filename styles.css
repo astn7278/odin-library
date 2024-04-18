@@ -12,10 +12,11 @@
 }
 
 #newBookModal {
+    display: none;
+    position: fixed;
     background-color: rgba(0,0,0,0.15);
     width: 350px;
     height: 400px;
-    display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
