@@ -13,13 +13,16 @@
 
 #newBookModal {
     display: none;
-    position: fixed;
+    position: absolute;
     background-color: rgba(0,0,0,0.15);
     width: 350px;
     height: 400px;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .bookModalContent {
@@ -30,4 +33,9 @@
     width: 100px;
     border: none;
     border-radius: 5px;
+}
+
+
+#newBookModal.show {
+    display: flex; /* Show the modal when the 'show' class is added */
 }
