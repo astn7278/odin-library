@@ -1,4 +1,47 @@
-const myLibrary = [];
+const myLibrary = [
+    {
+        title: "The Giver",
+        author: "Lois Lowry",
+        pages: 208,
+        status: "Yes"
+    },
+    {
+        title: "The Great Gatsby",
+        author: "F. Scott Fitzgerald",
+        pages: 180,
+        status: "No"
+    },
+    {
+        title: "To Kill a Mockingbird",
+        author: "Harper Lee",
+        pages: 281,
+        status: "No"
+    }
+];
+
+// Function to display each object in the array on the webpage
+function displayBooks() {
+    const booksContainer = document.getElementById("booksContainer");
+
+    myLibrary.forEach(function(book, index) {
+        const bookDiv = document.createElement("div");
+        bookDiv.classList.add("book");
+
+        bookDiv.innerHTML = `
+            <h2>Book ${index + 1}</h2>
+            <p><strong>Title:</strong> ${book.title}</p>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p><strong>Pages:</strong> ${book.pages}</p>
+            <p><strong>Read?</strong> ${book.status}</p>
+        `;
+
+        booksContainer.appendChild(bookDiv);
+    });
+}
+
+// Call the function to display books when the page loads
+document.addEventListener("DOMContentLoaded", displayBooks);
+
 
 //listen for form submit, assigns user inputs to variables, creates object using Book constructor
 document
@@ -9,11 +52,17 @@ document
         let title = document.getElementById("bookTitle").value;
         let pages = document.getElementById("pageCount").value;
         let status = document.getElementById("status").checked;
+        if (status) {
+            status = "Yes"
+        } else {
+            status = "No"
+        }
 
-        let userBook = new Book(author, title, pages, status);
+        new Book(author, title, pages, status);
 
-        console.log(userBook);
+        console.log(myLibrary);
         this.reset();
+        displayBooks();
     });
 
 //Object constructor takes variables, creates object, then pushes to array
