@@ -31,12 +31,13 @@ document.getElementById("openModalBtn").addEventListener("click", function () {
     document.getElementById("newBookModal").classList.add("show");
 });
 
-//Closes "new book" modal with cancel button
+//Closes "new book" modal with cancel button, clears form
 document.getElementById("cancelButton").addEventListener("click", function () {
     document.getElementById("newBookModal").classList.remove("show");
+    document.getElementById("newBookForm").reset();
 });
 
-//Closes "new book" modal by clicking outside modal
+//Closes "new book" modal by clicking outside modal, clears form
 document.addEventListener("click", function (event) {
     let modal = document.getElementById("newBookModal");
     if (
@@ -44,5 +45,6 @@ document.addEventListener("click", function (event) {
         !document.getElementById("openModalBtn").contains(event.target)
     ) {
         modal.classList.remove("show");
+        document.getElementById("newBookForm").reset();
     }
 });
