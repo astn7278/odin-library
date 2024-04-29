@@ -19,13 +19,18 @@ const myLibrary = [
     }
 ];
 
-// Function to display each object in the array on the webpage
+// Function to display each object in the array on the webpage. 
+// Clears div before looping through array to avoid duplicates
 function displayBooks() {
     const booksContainer = document.getElementById("booksContainer");
+
+    booksContainer.innerHTML = '';
 
     myLibrary.forEach(function(book, index) {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
+
+        bookDiv.setAttribute('data-index', index + 1); //Adds data attribute for reference
 
         bookDiv.innerHTML = `
             <h2>Book ${index + 1}</h2>
@@ -43,16 +48,14 @@ function displayBooks() {
 document.addEventListener("DOMContentLoaded", displayBooks);
 
 
-//listen for form submit, assigns user inputs to variables, creates object using Book constructor
-document
-    .getElementById("newBookForm")
-    .addEventListener("submit", function (event) {
+//Listen for form submit, assigns user inputs to variables, creates object using Book constructor
+document.getElementById("newBookForm").addEventListener("submit", function (event) {
         event.preventDefault();
         let author = document.getElementById("authorName").value;
         let title = document.getElementById("bookTitle").value;
         let pages = document.getElementById("pageCount").value;
         let status = document.getElementById("status").checked;
-        if (status) {
+        if (status) {      //Converts checkbox to "yes" or "no"
             status = "Yes"
         } else {
             status = "No"
@@ -60,9 +63,9 @@ document
 
         new Book(author, title, pages, status);
 
-        console.log(myLibrary);
-        this.reset();
-        displayBooks();
+        this.reset(); //Resets form fields
+        displayBooks(); //Displays on page
+        document.getElementById("newBookModal").classList.remove("show"); //Closes modal
     });
 
 //Object constructor takes variables, creates object, then pushes to array

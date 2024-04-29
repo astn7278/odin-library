@@ -14,7 +14,7 @@
 #newBookModal {
     display: none;
     position: absolute;
-    background-color: rgba(0,0,0,0.15);
+    background-color: rgba(176, 174, 174, 0.824);
     width: 350px;
     height: 400px;
     justify-content: center;
@@ -38,4 +38,10 @@
 
 #newBookModal.show {
     display: flex; /* Show the modal when the 'show' class is added */
+}
+
+.book {
+    background-color: rgb(218, 218, 218);
+    padding: 10px;
+    margin: 10px;
 }
