@@ -12,11 +12,12 @@
             <div class="bookModalContent">
                 <form id="newBookForm">
                     <h2>Add Your Book</h2>
+                    <label for="bookTitle"></label>
+                    <input type="text" id="bookTitle" name="bookTitle" placeholder="Book Title" required>
+                    
                     <label for="authorName"></label>
                     <input type="text" id="authorName" name="authorName" placeholder="Author Name" required>
 
-                    <label for="bookTitle"></label>
-                    <input type="text" id="bookTitle" name="bookTitle" placeholder="Book Title" required>
 
                     <label for="pageCount"></label>
                     <input type="text" id="pageCount" name="pageCount" placeholder="Number of Pages" required>
@@ -27,8 +28,8 @@
                     </div>
                     
                     <div class="formButtons">
-                        <input id="submitButton" type="submit" value="Add">
-                        <input id="cancelButton" type="button" value="Cancel">
+                        <input class=buttons id="submitButton" type="submit" value="Add">
+                        <input class=buttons id="cancelButton" type="button" value="Cancel">
                     </div>
                 </form>
             </div>

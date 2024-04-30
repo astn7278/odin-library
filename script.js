@@ -37,8 +37,7 @@ function displayBooks() {
 
 
         bookInfoDiv.innerHTML = `
-            <h2>Book ${index + 1}</h2>
-            <p><strong>Title:</strong> ${book.title}</p>
+            <h2>${book.title}</h2>
             <p><strong>Author:</strong> ${book.author}</p>
             <p><strong>Pages:</strong> ${book.pages}</p>
             <p><strong>Read?</strong> ${book.status}</p>
