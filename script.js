@@ -27,12 +27,16 @@ function displayBooks() {
     booksContainer.innerHTML = '';
 
     myLibrary.forEach(function(book, index) {
-        const bookDiv = document.createElement("div");
-        bookDiv.classList.add("book");
-
+        const bookDiv = document.createElement("div");  //Create main book container
         bookDiv.setAttribute('data-index', index + 1); //Adds data attribute for reference
 
-        bookDiv.innerHTML = `
+        booksContainer.appendChild(bookDiv);
+
+        const bookInfoDiv = document.createElement("div"); //Create info container
+        bookDiv.classList.add("book");
+
+
+        bookInfoDiv.innerHTML = `
             <h2>Book ${index + 1}</h2>
             <p><strong>Title:</strong> ${book.title}</p>
             <p><strong>Author:</strong> ${book.author}</p>
@@ -40,7 +44,14 @@ function displayBooks() {
             <p><strong>Read?</strong> ${book.status}</p>
         `;
 
-        booksContainer.appendChild(bookDiv);
+        bookDiv.appendChild(bookInfoDiv); //Adds the book div
+
+        const bookButtonContainer = document.createElement("div");  //Create button container
+        bookButtonContainer.innerHTML = `
+            <input id="removeButton" type="button" value="Remove">
+            <input id="readButton" type="button" value="I Read This!">
+        `;
+        bookDiv.appendChild(bookButtonContainer)
     });
 }
 
