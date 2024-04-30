@@ -6,20 +6,20 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <button id="openModalBtn">New Book</button>
+        <button class=buttons id="openModalBtn">Add A Book</button>
         <div id="booksContainer"></div>
         <div id="newBookModal">
             <div class="bookModalContent">
                 <form id="newBookForm">
                     <h2>Add Your Book</h2>
                     <label for="authorName"></label>
-                    <input type="text" id="authorName" name="authorName" placeholder="Author Name">
+                    <input type="text" id="authorName" name="authorName" placeholder="Author Name" required>
 
                     <label for="bookTitle"></label>
-                    <input type="text" id="bookTitle" name="bookTitle" placeholder="Book Title">
+                    <input type="text" id="bookTitle" name="bookTitle" placeholder="Book Title" required>
 
                     <label for="pageCount"></label>
-                    <input type="text" id="pageCount" name="pageCount" placeholder="Number of Pages">
+                    <input type="text" id="pageCount" name="pageCount" placeholder="Number of Pages" required>
                     
                     <div id= readBtn>
                         <input type="checkbox" id="status" name="status">

@@ -47,9 +47,10 @@ function displayBooks() {
         bookDiv.appendChild(bookInfoDiv); //Adds the book div
 
         const bookButtonContainer = document.createElement("div");  //Create button container
+        bookButtonContainer.setAttribute('id', 'bookButtonContainer')
         bookButtonContainer.innerHTML = `
-            <input id="removeButton" type="button" value="Remove">
-            <input id="readButton" type="button" value="I Read This!">
+            <input class=buttons id="removeButton" type="button" value="Remove">
+            <input class=buttons id="readButton" type="button" value="I Read This!">
         `;
         bookDiv.appendChild(bookButtonContainer)
     });

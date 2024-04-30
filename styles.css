@@ -42,9 +42,33 @@
 
 .book {
     background-color: rgb(218, 218, 218);
-    padding: 10px;
+    padding: 10px 15px;
     margin: 10px;
     display: flex;
     justify-content: space-between;
+    border-radius: 8px;
+}
+
+#bookButtonContainer {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    gap: 10px;
+    place-items: center;
+    margin-right: ;
+}
+
+.buttons {
+    border-style: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+#openModalBtn {
+    background-color: rgb(154, 218, 132);
+    margin: 10px 10px 0px 10px;
+}
+
+#openModalBtn:hover {
+    background-color: rgb(145, 205, 123);
 
 }
