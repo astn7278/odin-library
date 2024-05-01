@@ -68,6 +68,9 @@ function displayBooks() {
             const btnCtn = this.closest('.book');
             if (btnCtn) {
                 btnCtn.remove();
+                const bookToRemove = "0"
+                myLibrary.splice(bookToRemove, 1)
+                console.log(btnCtn);
             }
         });
     });
