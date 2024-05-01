@@ -67,8 +67,8 @@ function displayBooks() {
         button.addEventListener('click', function(event) {
             const btnCtn = this.closest('.book');
             if (btnCtn) {
-                btnCtn.remove();
-                const bookToRemove = "0"
+                btnCtn.remove(); //Removes "book" div
+                const bookToRemove = "0" //Removes book object from array
                 myLibrary.splice(bookToRemove, 1)
                 console.log(btnCtn);
             }
