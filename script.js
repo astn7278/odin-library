@@ -46,20 +46,34 @@ function displayBooks() {
 
         const bookButtonContainer = document.createElement("div");  //Create button container
         bookButtonContainer.setAttribute('id', 'bookButtonContainer')
-        if (book.status == "No") { //Only display "read" button if book has not been read
+        if (book.status === "No") { //Only display "read" button if book has not been read
             bookButtonContainer.innerHTML = `
             <input class=buttons id="removeButton" type="button" value="Remove">
             <input class=buttons id="readButton" type="button" value="I Read This!">
         `;
+        
         } else {
         bookButtonContainer.innerHTML = `
             <input class=buttons id="removeButton" type="button" value="Remove">
         `;
         }
-        
+
         bookDiv.appendChild(bookButtonContainer);
     });
+
+    const removeButtons = document.querySelectorAll('#bookButtonContainer #removeButton')
+
+    removeButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            const btnCtn = this.closest('.book');
+            if (btnCtn) {
+                btnCtn.remove();
+            }
+        });
+    });
 }
+
+
 
 // Call the function to display books when the page loads
 document.addEventListener("DOMContentLoaded", displayBooks);
