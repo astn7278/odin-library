@@ -35,7 +35,6 @@ function displayBooks() {
         const bookInfoDiv = document.createElement("div"); //Create info container
         bookDiv.classList.add("book");
 
-
         bookInfoDiv.innerHTML = `
             <h2>${book.title}</h2>
             <p><strong>Author:</strong> ${book.author}</p>
@@ -47,11 +46,18 @@ function displayBooks() {
 
         const bookButtonContainer = document.createElement("div");  //Create button container
         bookButtonContainer.setAttribute('id', 'bookButtonContainer')
-        bookButtonContainer.innerHTML = `
+        if (book.status == "No") { //Only display "read" button if book has not been read
+            bookButtonContainer.innerHTML = `
             <input class=buttons id="removeButton" type="button" value="Remove">
             <input class=buttons id="readButton" type="button" value="I Read This!">
         `;
-        bookDiv.appendChild(bookButtonContainer)
+        } else {
+        bookButtonContainer.innerHTML = `
+            <input class=buttons id="removeButton" type="button" value="Remove">
+        `;
+        }
+        
+        bookDiv.appendChild(bookButtonContainer);
     });
 }
 
