@@ -21,6 +21,7 @@ const myLibrary = [
 
 // Function to display each object in the array on the webpage. 
 // Clears div before looping through array to avoid duplicates
+//Button functionality that removes books or updates read status
 function displayBooks() {
     const booksContainer = document.getElementById("booksContainer");
 
@@ -28,7 +29,7 @@ function displayBooks() {
 
     myLibrary.forEach(function(book, index) {
         const bookDiv = document.createElement("div");  //Create main book container
-        bookDiv.setAttribute('data-index', index + 1); //Adds data attribute for reference
+        bookDiv.setAttribute('data-index', index); //Adds data attribute for reference
 
         booksContainer.appendChild(bookDiv);
 
@@ -42,38 +43,52 @@ function displayBooks() {
             <p><strong>Read?</strong> ${book.status}</p>
         `;
 
-        bookDiv.appendChild(bookInfoDiv); //Adds the book div
+        bookDiv.appendChild(bookInfoDiv); //Adds the book info to div
 
         const bookButtonContainer = document.createElement("div");  //Create button container
         bookButtonContainer.setAttribute('id', 'bookButtonContainer')
-        if (book.status === "No") { //Only display "read" button if book has not been read
+        if (book.status === "No") { //Only display "read" button if book has not been read. Pulls index from div
             bookButtonContainer.innerHTML = `
-            <input class=buttons id="removeButton" type="button" value="Remove">
-            <input class=buttons id="readButton" type="button" value="I Read This!">
+            <input class=buttons id="removeButton" data-id="${bookDiv.dataset.index}" type="button" value="Remove"> 
+            <input class=buttons id="readButton" data-id="${bookDiv.dataset.index}" type="button" value="I Read This!">
         `;
         
         } else {
         bookButtonContainer.innerHTML = `
-            <input class=buttons id="removeButton" type="button" value="Remove">
+            <input class=buttons id="removeButton" data-id="${bookDiv.dataset.index}" type="button" value="Remove">
         `;
         }
 
-        bookDiv.appendChild(bookButtonContainer);
+        bookDiv.appendChild(bookButtonContainer);//Adds the book div with buttons
     });
 
     const removeButtons = document.querySelectorAll('#bookButtonContainer #removeButton')
 
     removeButtons.forEach(button => {
         button.addEventListener('click', function(event) {
-            const btnCtn = this.closest('.book');
-            if (btnCtn) {
-                btnCtn.remove(); //Removes "book" div
-                const bookToRemove = "0" //Removes book object from array
-                myLibrary.splice(bookToRemove, 1)
-                console.log(btnCtn);
-            }
+            const bookRemove = this.closest('.book');
+            bookRemove.remove(); //Removes "book" div
+            const bookToRemove = (event.target.dataset.id) //Sets book to remove based on data-index
+            myLibrary.splice(bookToRemove, 1);
+            //console.log(event.target.dataset.id);
+            //console.log(myLibrary);
+            displayBooks(); //Runs to display books with updated array and index
         });
     });
+
+    const readButtons = document.querySelectorAll('#bookButtonContainer #readButton')
+
+    readButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            const bookIndex = (this.closest('.book').dataset.index); //Retrieves index of selected book
+            myLibrary[bookIndex].status = "Yes"; //Updates book object status
+            //console.log(bookStatus.dataset.index);
+            //console.log(myLibrary)
+            displayBooks(); //Runs to display books with updated status, removes read button
+        });
+    });
+
+
 }
 
 
