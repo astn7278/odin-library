@@ -118,13 +118,23 @@ document.getElementById("newBookForm").addEventListener("submit", function (even
     });
 
 //Object constructor takes variables, creates object, then pushes to array
-function Book(author, title, pages, status) {
+/*function Book(author, title, pages, status) {
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.status = status;
 
     myLibrary.push(this);
+}*/
+
+class Book {
+    constructor(author, title, pages, status) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.status = status;
+        myLibrary.push(this)
+    }
 }
 
 //Opens "new book" modal with button press
